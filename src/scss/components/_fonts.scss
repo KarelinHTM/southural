@@ -1,0 +1,75 @@
+.fonts {
+  &__inner {
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  &__block {
+    max-width: 350px;
+    text-align: center;
+
+    &-accent {
+      font-family: var(--font-accent);
+      letter-spacing: 1px;
+
+      .fonts__title {
+        &::after {
+          content: "03";
+        }
+      }
+    }
+
+    &-text {
+      .fonts__title {
+        &::after {
+          content: "01";
+        }
+      }
+    }
+
+    &-bold {
+      font-weight: bold;
+
+      .fonts__title {
+        &::after {
+          content: "02";
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: 22px;
+    margin-bottom: 40px;
+    position: relative;
+    text-align: center;
+
+    &::after {
+      content: "01";
+
+      position: absolute;
+      left: 15%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 10px;
+      font-size: 60px;
+      font-family: var(--font-family);
+      font-weight: bold;
+      line-height: 10px;
+      opacity: 0.4;
+
+      background-image: url("./../");
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__text {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-word;
+  }
+}

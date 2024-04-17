@@ -1,0 +1,55 @@
+.gallery {
+  &__inner {
+    margin: 0 auto;
+    max-width: 1920px;
+    padding: 0 15px;
+    row-gap: 50px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__full {
+    height: 1080px;
+    background-color: #eeeded;
+    background-image: url("../img/pattern-full.png");
+    background-position: center center;
+    background-size: 960px;
+    background-repeat: repeat;
+    border-radius: 30px;
+    grid-column: 12 span;
+  }
+
+  &__pattern {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    background-color: #eeeded;
+    padding: 10px;
+    border-radius: 30px;
+
+    &-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    &-one {
+      grid-column: 4 span;
+    }
+    &-two {
+      grid-column: 5 / 4 span;
+    }
+    &-three {
+      grid-column: 9 / 4 span;
+    }
+    &-four {
+      grid-column: 4 span;
+    }
+    &-five {
+      grid-column: 5 / 4 span;
+    }
+    &-six {
+      grid-column: 9 / 4 span;
+    }
+  }
+}

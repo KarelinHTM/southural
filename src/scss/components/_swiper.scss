@@ -1,0 +1,54 @@
+.swiper {
+  &__container {
+    &-bg {
+      height: 100%;
+      position: relative;
+      z-index: 0;
+    }
+
+    &-title {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      cursor: default;
+    }
+  }
+
+  &__title {
+    font-family: var(--font-accent, sans-serif);
+    letter-spacing: 20px;
+    font-size: 200px;
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    color: var(--white-color);
+  }
+
+  &-pagination {
+    right: 0;
+    font-weight: bold;
+
+    &-bullet {
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      font-size: 16px;
+      color: var(--light-color);
+      opacity: 0.6;
+      background: none;
+      border: none;
+
+      &-active {
+        opacity: 1 !important;
+        transform: scale(1.4);
+      }
+    }
+  }
+}
