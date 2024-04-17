@@ -32,6 +32,7 @@ const ghPages = require("gulp-gh-pages");
 // paths
 const srcFolder = "./src";
 const buildFolder = "./app";
+const publishFolder = "./.publish";
 const paths = {
   srcSvg: `${srcFolder}/img/svg/**.svg`,
   srcImgFolder: `${srcFolder}/img`,
@@ -267,23 +268,6 @@ const webpImages = () => {
     .pipe(dest(paths.buildImgFolder));
 };
 
-// const htmlInclude = () => {
-//   return src([`${srcFolder}/*.html`])
-//     .pipe(
-//       fileInclude({
-//         prefix: "@",
-//         basepath: "@file",
-//       })
-//     )
-//     .pipe(
-//       typograf({
-//         locale: ["ru", "en-US"],
-//       })
-//     )
-//     .pipe(dest(buildFolder))
-//     .pipe(browserSync.stream());
-// };
-
 const compilePug = () => {
   return src(`${srcFolder}/*.pug`)
     .pipe(pug())
@@ -303,8 +287,6 @@ const watchFiles = () => {
   watch(paths.srcFullJs, scripts);
   watch(`${paths.srcPartialsFolder}/*.pug`, compilePug);
   watch(`${srcFolder}/*.pug`, compilePug);
-  // watch(`${paths.srcPartialsFolder}/*.html`, htmlInclude);
-  // watch(`${srcFolder}/*.html`, htmlInclude);
   watch(`${paths.resourcesFolder}/**`, resources);
   watch(`${paths.srcImgFolder}/**/**.{jpg,jpeg,png,svg}`, images);
   watch(`${paths.srcImgFolder}/**/**.{jpg,jpeg,png}`, webpImages);
@@ -377,7 +359,6 @@ const toGit = () => {
 exports.default = series(
   clean,
   compilePug,
-  // htmlInclude,
   scripts,
   styles,
   resources,
@@ -389,7 +370,6 @@ exports.default = series(
 
 exports.backend = series(
   clean,
-  // htmlInclude,
   compilePug,
   scriptsBackend,
   stylesBackend,
@@ -402,7 +382,6 @@ exports.backend = series(
 exports.build = series(
   toProd,
   clean,
-  // htmlInclude,
   compilePug,
   scripts,
   styles,
